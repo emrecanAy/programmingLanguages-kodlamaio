@@ -35,11 +35,11 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	}
 	
 	@Override
-	public void add(ProgrammingLanguage programmingLanguage) {
-		if(programmingLanguage.getName().equals("")) {
-			System.out.println("Please type a programming language!");
+	public void add(ProgrammingLanguage programmingLanguage) throws Exception {
+		if(programmingLanguage.getName() == null) {
+			throw new Exception("Please type a programming language!");
 		}else if(this.checkIfProgrammingLanguageExists(programmingLanguage.getName())) {
-			System.out.println("Programming language already exists!");
+			throw new Exception("Programming language already exists!");
 		}
 		else {
 			this.programmingLanguageRepository.add(programmingLanguage);
@@ -47,9 +47,9 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	}
 
 	@Override
-	public void update(ProgrammingLanguage programmingLanguage) {
-		if(programmingLanguage.getName().equals("")) {
-			System.out.println("Please type a programming language!");
+	public void update(ProgrammingLanguage programmingLanguage) throws Exception {
+		if(programmingLanguage.getName() == null) {
+			throw new Exception("Please type a programming language!");
 		}else {
 			this.programmingLanguageRepository.update(programmingLanguage);
 		}
@@ -62,7 +62,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	}
 	
 	public boolean checkIfProgrammingLanguageExists(String name) {
-		if(this.programmingLanguageRepository.getByName(name).getName().equals("")) {
+		if(this.programmingLanguageRepository.getByName(name).getName() == null) {
 			return false;
 		}
 		return true;

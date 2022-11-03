@@ -25,7 +25,7 @@ public class InMemoryProgrammingLanguageDao implements ProgrammingLanguageReposi
 
 	@Override
 	public ProgrammingLanguage getById(int id) {
-		return programmingLanguages.get(id);
+		return programmingLanguages.get(id-1);
 	}
 	
 	@Override
@@ -47,12 +47,12 @@ public class InMemoryProgrammingLanguageDao implements ProgrammingLanguageReposi
 
 	@Override
 	public void update(ProgrammingLanguage programmingLanguage) {
-		programmingLanguages.set(programmingLanguage.getId(), programmingLanguage);
+		programmingLanguages.set(programmingLanguage.getId()-1, programmingLanguage);
 	}
 
 	@Override
 	public void delete(int id) {
-		programmingLanguages.remove(id);
+		programmingLanguages.remove(id-1);
 	}
 
 	

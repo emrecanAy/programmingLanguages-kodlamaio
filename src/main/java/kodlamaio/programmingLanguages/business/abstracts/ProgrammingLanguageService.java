@@ -9,8 +9,8 @@ public interface ProgrammingLanguageService {
 	List<ProgrammingLanguage> getAll();
 	ProgrammingLanguage getById(int id);
 	ProgrammingLanguage getByName(String name);
-	void add(ProgrammingLanguage programmingLanguage);
-	void update(ProgrammingLanguage programmingLanguage);
+	void add(ProgrammingLanguage programmingLanguage) throws Exception;
+	void update(ProgrammingLanguage programmingLanguage) throws Exception;
 	void delete(int id);
 	
 }

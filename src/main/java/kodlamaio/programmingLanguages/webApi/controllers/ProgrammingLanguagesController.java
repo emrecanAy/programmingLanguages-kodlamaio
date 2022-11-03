@@ -3,8 +3,11 @@ package kodlamaio.programmingLanguages.webApi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,14 +30,24 @@ public class ProgrammingLanguagesController {
 		return this.programmingLanguageService.getAll();
 	}
 	
-	@GetMapping("/id")//fixlenecek.
-	public ProgrammingLanguage getById(int id) {
+	@GetMapping("/{id}")
+	public ProgrammingLanguage getById(@PathVariable() int id) {
 		return this.programmingLanguageService.getById(id);
 	}
 	
 	@PostMapping("/add")
-	public void add(ProgrammingLanguage programmingLanguage) {
+	public void add(ProgrammingLanguage programmingLanguage) throws Exception {
 		this.programmingLanguageService.add(programmingLanguage);
+	}
+	
+	@PutMapping("/update")
+	public void update(ProgrammingLanguage programmingLanguage) throws Exception {
+		this.programmingLanguageService.update(programmingLanguage);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable() int id) {
+		this.programmingLanguageService.delete(id);
 	}
 	
 	

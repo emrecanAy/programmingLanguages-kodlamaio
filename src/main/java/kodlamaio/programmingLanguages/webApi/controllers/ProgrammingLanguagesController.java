@@ -27,7 +27,7 @@ public class ProgrammingLanguagesController {
 		return this.programmingLanguageService.getAll();
 	}
 	
-	@GetMapping("/id")
+	@GetMapping("/id")//fixlenecek.
 	public ProgrammingLanguage getById(int id) {
 		return this.programmingLanguageService.getById(id);
 	}

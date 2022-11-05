@@ -19,7 +19,7 @@ Java Bootcamp 2022 - @engindemirog
 
 ## OpenAPI Documentation
 <p float="left">
-<img width="500" src="" />
+<img width="500" src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/swagger-api-endpoints.jpg" />
 <img width="500" src="" />
 </p>
 loading...

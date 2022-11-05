@@ -46,8 +46,8 @@ Talebe göre versiyon güncellemeleri gelecektir.
 
 ### Teknolojiler
 
-* [.Net](https://docs.microsoft.com/tr-tr/dotnet/welcome)
-* [WinForms](https://docs.microsoft.com/tr-tr/dotnet/desktop/winforms/overview/?view=netdesktop-6.0)
+* [Java](https://www.java.com/tr/)
+* [Spring Boot](https://spring.io/projects/spring-boot)
 
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 

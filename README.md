@@ -37,11 +37,8 @@ loading...
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 
 ## Bilgi
-
-<b>Projemiz her zaman gelişmeye açıktır. Buna olanak sağlamak için projenin arka tarafını mümkün olduğunca profesyonel bir şekilde sektöre ve SOLID, DRY gibi prensiplere uygun kodlamaya çalıştık.
-Talebe göre versiyon güncellemeleri gelecektir. 
 </b>
-<h3>İncelediğiniz için teşekkür ederiz.</h3>
+<h3>İncelediğiniz için teşekkürler.</h3>
 
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 

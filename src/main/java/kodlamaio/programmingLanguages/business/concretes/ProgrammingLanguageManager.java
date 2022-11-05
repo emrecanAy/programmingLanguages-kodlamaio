@@ -1,11 +1,17 @@
 package kodlamaio.programmingLanguages.business.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.programmingLanguages.business.abstracts.ProgrammingLanguageService;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.CreateProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.DeleteProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.UpdateProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.responses.programmingLanguage.GetAllProgrammingLanguagesResponse;
+import kodlamaio.programmingLanguages.business.responses.programmingLanguage.GetProgrammingLanguageResponse;
 import kodlamaio.programmingLanguages.dataAccess.abstracts.ProgrammingLanguageRepository;
 import kodlamaio.programmingLanguages.entities.ProgrammingLanguage;
 
@@ -20,49 +26,71 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 	}
 
 	@Override
-	public List<ProgrammingLanguage> getAll() {
-		return this.programmingLanguageRepository.getAll();
+	public List<GetAllProgrammingLanguagesResponse> getAll() {
+		List<ProgrammingLanguage> programmingLanguages = this.programmingLanguageRepository.findAll();
+		List<GetAllProgrammingLanguagesResponse> programmingLanguagesResponse = new ArrayList<>();
+		for(ProgrammingLanguage programmingLanguage : programmingLanguages) {
+			GetAllProgrammingLanguagesResponse responseItem = new GetAllProgrammingLanguagesResponse();
+			responseItem.setId(programmingLanguage.getId());
+			responseItem.setName(programmingLanguage.getName());
+			programmingLanguagesResponse.add(responseItem);
+		}
+		return programmingLanguagesResponse;
 	}
 
 	@Override
-	public ProgrammingLanguage getById(int id) {
-		return this.programmingLanguageRepository.getById(id);
+	public GetProgrammingLanguageResponse getById(int id) {
+		ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findById(id).get();
+		GetProgrammingLanguageResponse getProgrammingLanguageResponse = new GetProgrammingLanguageResponse();
+		getProgrammingLanguageResponse.setId(programmingLanguage.getId());
+		getProgrammingLanguageResponse.setName(programmingLanguage.getName());
+		return getProgrammingLanguageResponse;
 	}
 	
 	@Override
-	public ProgrammingLanguage getByName(String name) {
-		return this.programmingLanguageRepository.getByName(name);
+	public GetProgrammingLanguageResponse findByName(String name) {
+		ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findByName(name);
+		GetProgrammingLanguageResponse getProgrammingLanguageResponse = new GetProgrammingLanguageResponse();
+		getProgrammingLanguageResponse.setId(programmingLanguage.getId());
+		getProgrammingLanguageResponse.setName(programmingLanguage.getName());
+		return getProgrammingLanguageResponse;
+		
 	}
 	
 	@Override
-	public void add(ProgrammingLanguage programmingLanguage) throws Exception {
-		if(programmingLanguage.getName() == null) {
+	public void add(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) throws Exception {
+		if(createProgrammingLanguageRequest.getName() == null) {
 			throw new Exception("Please type a programming language!");
-		}else if(this.checkIfProgrammingLanguageExists(programmingLanguage.getName())) {
+		}else if(this.checkIfProgrammingLanguageExists(createProgrammingLanguageRequest.getName())) {
 			throw new Exception("Programming language already exists!");
 		}
 		else {
-			this.programmingLanguageRepository.add(programmingLanguage);
+			ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
+			programmingLanguage.setName(createProgrammingLanguageRequest.getName());
+			this.programmingLanguageRepository.save(programmingLanguage);
 		}
 	}
 
 	@Override
-	public void update(ProgrammingLanguage programmingLanguage) throws Exception {
-		if(programmingLanguage.getName() == null) {
+	public void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) throws Exception {
+		if(updateProgrammingLanguageRequest.getName() == null) {
 			throw new Exception("Please type a programming language!");
 		}else {
-			this.programmingLanguageRepository.update(programmingLanguage);
+			ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
+			programmingLanguage.setId(updateProgrammingLanguageRequest.getId());
+			programmingLanguage.setName(updateProgrammingLanguageRequest.getName());
+			this.programmingLanguageRepository.save(programmingLanguage);
 		}
 	}
 
 	@Override
-	public void delete(int id) {
-		this.programmingLanguageRepository.delete(id);
+	public void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest) {
+		this.programmingLanguageRepository.deleteById(deleteProgrammingLanguageRequest.getId());
 		
 	}
 	
 	public boolean checkIfProgrammingLanguageExists(String name) {
-		if(this.programmingLanguageRepository.getByName(name).getName() == null) {
+		if(this.programmingLanguageRepository.findByName(name) == null) {
 			return false;
 		}
 		return true;

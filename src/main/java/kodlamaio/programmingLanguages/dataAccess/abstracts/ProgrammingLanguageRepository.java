@@ -1,16 +1,11 @@
 package kodlamaio.programmingLanguages.dataAccess.abstracts;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import kodlamaio.programmingLanguages.entities.ProgrammingLanguage;
 
-public interface ProgrammingLanguageRepository {
-
-	List<ProgrammingLanguage> getAll();
-	ProgrammingLanguage getById(int id);
-	ProgrammingLanguage getByName(String name);
-	void add(ProgrammingLanguage programmingLanguage);
-	void update(ProgrammingLanguage programmingLanguage);
-	void delete(int id);
-	
+@Repository
+public interface ProgrammingLanguageRepository extends JpaRepository<ProgrammingLanguage, Integer>{
+	ProgrammingLanguage findByName(String name);
 }

@@ -2,15 +2,19 @@ package kodlamaio.programmingLanguages.business.abstracts;
 
 import java.util.List;
 
-import kodlamaio.programmingLanguages.entities.ProgrammingLanguage;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.CreateProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.DeleteProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.requests.programmingLanguage.UpdateProgrammingLanguageRequest;
+import kodlamaio.programmingLanguages.business.responses.programmingLanguage.GetAllProgrammingLanguagesResponse;
+import kodlamaio.programmingLanguages.business.responses.programmingLanguage.GetProgrammingLanguageResponse;
 
 public interface ProgrammingLanguageService {
 
-	List<ProgrammingLanguage> getAll();
-	ProgrammingLanguage getById(int id);
-	ProgrammingLanguage getByName(String name);
-	void add(ProgrammingLanguage programmingLanguage) throws Exception;
-	void update(ProgrammingLanguage programmingLanguage) throws Exception;
-	void delete(int id);
+	List<GetAllProgrammingLanguagesResponse> getAll();
+	GetProgrammingLanguageResponse getById(int id);
+	GetProgrammingLanguageResponse findByName(String name);
+	void add(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) throws Exception;
+	void update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) throws Exception;
+	void delete(DeleteProgrammingLanguageRequest deleteProgrammingLanguageRequest);
 	
 }

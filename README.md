@@ -19,8 +19,10 @@ Java Bootcamp 2022 - @engindemirog
 
 ## OpenAPI Documentation
 <p float="left">
-<img width="500" src="" />
-<img width="500" src="" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/swagger-api-endpoints.jpg" />
+  
+## Postman API Endpoints
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/postman-api-endpoints.jpg" />
 </p>
 loading...
 
@@ -44,8 +46,8 @@ Talebe göre versiyon güncellemeleri gelecektir.
 
 ### Teknolojiler
 
-* [.Net](https://docs.microsoft.com/tr-tr/dotnet/welcome)
-* [WinForms](https://docs.microsoft.com/tr-tr/dotnet/desktop/winforms/overview/?view=netdesktop-6.0)
+* [Java](https://www.java.com/tr/)
+* [Spring Boot](https://spring.io/projects/spring-boot)
 
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 

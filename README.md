@@ -24,6 +24,7 @@ Java Bootcamp 2022 - @engindemirog
 ## Postman API Endpoints
 <img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/postman-api-endpoints.jpg" />
 </p>
+
 ## API Response Examples
 <img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllProgrammingLanguagesResponse.jpg" />
 <img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllSubTechsResponse.jpg" />

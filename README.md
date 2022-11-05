@@ -1,4 +1,4 @@
-# programmingLanguages-kodlamaio
+# Programming Languages API - kodlamaio
 Java Bootcamp 2022 - @engindemirog
 
 <div id="top"></div>

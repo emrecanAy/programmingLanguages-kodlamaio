@@ -26,7 +26,7 @@ Java Bootcamp 2022 - @engindemirog
 </p>
 
 ## API Response Examples
-<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllProgrammingLanguagesResponse.jpg" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllProgrammingLanguagesResponseUpdated.jpg" />
 <img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllSubTechsResponse.jpg" />
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 

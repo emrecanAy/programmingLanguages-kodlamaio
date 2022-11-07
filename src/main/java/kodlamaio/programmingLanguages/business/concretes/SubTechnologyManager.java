@@ -45,21 +45,38 @@ public class SubTechnologyManager implements SubTechnologyService{
 
 	@Override
 	public void add(CreateSubTechnologyRequest createSubTechnologyRequest) throws Exception {
-		SubTechnology subTechnology = new SubTechnology();
-		subTechnology.setName(createSubTechnologyRequest.getName());
-		ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findById(createSubTechnologyRequest.getLanguageId()).get();
-		subTechnology.setProgrammingLanguage(programmingLanguage);
-		this.subTechnologyRepository.save(subTechnology);
-		
+		if(createSubTechnologyRequest.getName() == null) {
+			throw new Exception("Please type a sub technology!");
+		}
+		else if(createSubTechnologyRequest.getLanguageId() == 0) {
+			throw new Exception("Please type a programming language id!");
+		}else if(this.checkIfSubTechnologyExists(createSubTechnologyRequest.getName())) {
+			throw new Exception("Programming language already exists!");
+		}else {
+			SubTechnology subTechnology = new SubTechnology();
+			subTechnology.setName(createSubTechnologyRequest.getName());
+			ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findById(createSubTechnologyRequest.getLanguageId()).get();
+			subTechnology.setProgrammingLanguage(programmingLanguage);
+			this.subTechnologyRepository.save(subTechnology);
+		}	
 	}
 
 	@Override
 	public void update(UpdateSubTechnologyRequest updateSubTechnologyRequest) throws Exception {
-		SubTechnology subTechnology = this.subTechnologyRepository.findById(updateSubTechnologyRequest.getId()).get();
-		ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findById(updateSubTechnologyRequest.getProgrammingLanguageId()).get();
-		subTechnology.setProgrammingLanguage(programmingLanguage);
-		subTechnology.setName(updateSubTechnologyRequest.getName());
-		this.subTechnologyRepository.save(subTechnology);
+		if(updateSubTechnologyRequest.getName() == null) {
+			throw new Exception("Please type a sub technology!");
+		}else if(updateSubTechnologyRequest.getProgrammingLanguageId() == 0) {
+			throw new Exception("Please type a programming language id!");
+		}else if(this.checkIfSubTechnologyExists(updateSubTechnologyRequest.getName())) {
+			throw new Exception("Programming language already exists!");
+		}else{
+			SubTechnology subTechnology = this.subTechnologyRepository.findById(updateSubTechnologyRequest.getId()).get();
+			ProgrammingLanguage programmingLanguage = this.programmingLanguageRepository.findById(updateSubTechnologyRequest.getProgrammingLanguageId()).get();
+			subTechnology.setProgrammingLanguage(programmingLanguage);
+			subTechnology.setName(updateSubTechnologyRequest.getName());
+			this.subTechnologyRepository.save(subTechnology);
+		}
+		
 	}
 
 	@Override
@@ -86,6 +103,14 @@ public class SubTechnologyManager implements SubTechnologyService{
 		getSubTechnologyResponse.setLanguage(subTechnology.getProgrammingLanguage().getName());
 		return getSubTechnologyResponse;
 	}
+	
+	public boolean checkIfSubTechnologyExists(String name) {
+		if(this.subTechnologyRepository.findByName(name) == null) {
+			return false;
+		}
+		return true;
+	}
+
 
 	
 	

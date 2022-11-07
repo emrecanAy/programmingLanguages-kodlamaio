@@ -19,15 +19,15 @@ Java Bootcamp 2022 - @engindemirog
 
 ## OpenAPI Documentation
 <p float="left">
-<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/swagger-api-endpoints.jpg" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/img/swagger-api-endpoints.jpg" />
   
 ## Postman API Endpoints
-<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/postman-api-endpoints.jpg" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/img/postman-api-endpoints.jpg" />
 </p>
 
 ## API Response Examples
-<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllProgrammingLanguagesResponseUpdated.jpg" />
-<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/GetAllSubTechsResponse.jpg" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/img/GetAllProgrammingLanguagesResponseUpdated.jpg" />
+<img src="https://github.com/emrecanAy/programmingLanguages-kodlamaio/blob/master/img/GetAllSubTechsResponse.jpg" />
 <p align="right">(<a href="#top">Başa dön</a>)</p>
 
 ## Ek Özellikler ve Detaylar
